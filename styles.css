@@ -739,12 +739,14 @@ a:focus-visible {
 }
 
 .testimonial-card {
-    width: min(420px, 85vw);
+    width: min(400px, 85vw); /* Wide orientation */
+    height: 100%;
+    min-height: 240px; /* Short height baseline */
     flex-shrink: 0;
     background-color: #141414;
     /* Matte dark card */
-    padding: 2.5rem;
-    border-radius: 12px;
+    padding: 1.5rem 2rem; /* Adjusted padding to save vertical space */
+    border-radius: 8px; /* Sharper rectangular corners */
     border: 1px solid #252525;
     position: relative;
     display: flex;
@@ -784,21 +786,21 @@ a:focus-visible {
 
 .quote-mark {
     font-family: Georgia, serif;
-    font-size: 4rem;
+    font-size: 2.5rem; /* Scaled down to fit */
     color: #C1121F;
     line-height: 0;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem; /* Reduced margin */
     opacity: 0.8;
 }
 
 .testimonial-text {
-    font-size: 1.05rem;
+    font-size: 0.95rem; /* Scaled down slightly */
     font-weight: 400;
     color: #F5F5F5;
     /* High-contrast white */
-    margin-bottom: 2.5rem;
-    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    line-height: 1.5; /* Tighter line height */
     flex-grow: 1;
 }
 
