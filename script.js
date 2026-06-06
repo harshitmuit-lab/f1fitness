@@ -145,73 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             masterTl.fromTo(midRow, { x: "-50%" }, { x: "0%", ease: "none" }, 0);
         }
 
-        // =========================================
-        // Canvas Image Sequence — Hero
-        // =========================================
-        function setupCanvasSequence(canvasId, imagePathFunc, frameCount, startFrameIndex, fps) {
-            const canvas = document.getElementById(canvasId);
-            if (!canvas) return;
-            const context = canvas.getContext('2d');
 
-            canvas.width = 1920;
-            canvas.height = 1080;
-
-            const images = [];
-            const seqData = { frame: 0 };
-
-            for (let i = 0; i < frameCount; i++) {
-                const img = new Image();
-                const frameNum = (i + startFrameIndex).toString().padStart(3, '0');
-                img.src = imagePathFunc(frameNum);
-                images.push(img);
-            }
-
-            images[0].onload = render;
-
-            const duration = frameCount / fps;
-
-            gsap.to(seqData, {
-                frame: frameCount - 1,
-                snap: "frame",
-                ease: "none",
-                duration: duration,
-                repeat: -1,
-                onUpdate: render
-            });
-
-            function render() {
-                if (!images[seqData.frame] || !images[seqData.frame].complete) return;
-
-                context.clearRect(0, 0, canvas.width, canvas.height);
-                const img = images[seqData.frame];
-
-                const canvasRatio = canvas.width / canvas.height;
-                const imgRatio = img.width / img.height;
-
-                let drawWidth = canvas.width;
-                let drawHeight = canvas.height;
-                let diffX = 0;
-                let diffY = 0;
-
-                if (canvasRatio > imgRatio) {
-                    drawHeight = canvas.width / imgRatio;
-                    diffY = (drawHeight - canvas.height) / 2;
-                } else {
-                    drawWidth = canvas.height * imgRatio;
-                    diffX = (drawWidth - canvas.width) / 2;
-                }
-
-                context.drawImage(img, -diffX, -diffY, drawWidth, drawHeight);
-            }
-
-            window.addEventListener('resize', render, { passive: true });
-        }
-
-        setupCanvasSequence(
-            'hero-canvas',
-            num => `assets/hero/ezgif-frame-${num}.jpg`,
-            147, 1, 24
-        );
     }
 
     // =========================================
