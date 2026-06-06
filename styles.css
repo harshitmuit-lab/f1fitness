@@ -677,7 +677,8 @@ a:focus-visible {
 .testimonials-section {
     overflow-x: hidden;
     padding-top: 0;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
+    background-color: var(--bg-primary); /* Matte background, kept primary to blend */
 }
 
 .scroller-wrapper {
@@ -685,95 +686,122 @@ a:focus-visible {
     flex-direction: column;
     width: 100%;
     padding: 2rem 0;
-    perspective: 1200px;
+    gap: 2rem; /* Clean premium spacing between rows */
+    /* Smooth fade on edges for luxury feel */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 .scroller-row {
     width: 100%;
-    transform-style: preserve-3d;
-}
-
-.scroller-row.top-row {
-    transform: rotateY(5deg);
-    z-index: 1;
-}
-
-.scroller-row.mid-row {
-    transform: rotateY(-5deg);
-    margin-top: -4rem;
-    z-index: 2;
-}
-
-.top-row .testimonial-card {
-    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
-    border-color: rgba(220, 38, 38, 0.5);
-}
-
-.mid-row .testimonial-card {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
+    display: flex;
 }
 
 .scroller-track {
     display: flex;
-    gap: 2rem;
+    gap: 2rem; /* Spacing between cards */
     width: max-content;
     will-change: transform;
+    animation: scrollMarquee 45s linear infinite;
+}
+
+/* Subtle speed variation for the middle row to feel more organic */
+.mid-row .scroller-track {
+    animation-duration: 55s;
+    animation-direction: normal; /* Moving same direction */
+}
+
+/* Desktop hover pause */
+@media (hover: hover) {
+    .scroller-wrapper:hover .scroller-track {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes scrollMarquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(calc(-50% - 1rem), 0, 0); } /* -50% of the width minus half the gap for perfect loop */
 }
 
 .testimonial-card {
-    width: min(450px, 80vw);
+    width: min(420px, 85vw);
     flex-shrink: 0;
-    background-color: var(--bg-card);
-    padding: 1.5rem 2rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-subtle);
+    background-color: #141414; /* Matte dark card */
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #252525;
     position: relative;
-    transition: transform 0.4s ease, border-color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Elegant red top border line */
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; /* Overlap border */
+    left: 2.5rem;
+    width: 40px;
+    height: 2px;
+    background-color: #C1121F; /* Premium red accent */
+    transition: width 0.4s ease;
 }
 
 .testimonial-card:hover {
-    border-color: var(--accent-primary);
-    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px); /* Very subtle elevation */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Realistic soft shadow, no glow */
+}
+
+.testimonial-card:hover::before {
+    width: 80px; /* Expands on hover */
+    background-color: #dc2626;
 }
 
 .quote-mark {
     font-family: Georgia, serif;
-    font-size: 6rem;
-    color: var(--accent-primary);
-    position: absolute;
-    top: -20px;
-    left: 20px;
-    opacity: 0.2;
-    line-height: 1;
+    font-size: 4rem;
+    color: #C1121F;
+    line-height: 0;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
 }
 
 .testimonial-text {
-    font-size: 1.1rem;
-    font-style: italic;
-    margin-bottom: 2rem;
-    position: relative;
-    z-index: 1;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #F5F5F5; /* High-contrast white */
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    flex-grow: 1;
 }
 
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-top: auto;
 }
 
 .author-info strong {
     display: block;
     font-family: var(--font-heading);
-    font-size: 1.2rem;
-    letter-spacing: 1px;
+    font-size: 1.15rem;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
 }
 
 .author-info span {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
 }
 
 /* =============================================

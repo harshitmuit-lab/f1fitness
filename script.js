@@ -123,30 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
 
     // =========================================
-    // GSAP ScrollTrigger — Testimonials Ribbon
+    // Testimonials Ribbon (Now purely CSS driven)
     // =========================================
-    if (typeof gsap !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-
-        const topRow = document.querySelector('.top-row .scroller-track');
-        const midRow = document.querySelector('.mid-row .scroller-track');
-
-        if (topRow && midRow) {
-            const masterTl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#testimonials",
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1.5
-                }
-            });
-
-            masterTl.fromTo(topRow, { x: "0%" }, { x: "-50%", ease: "none" }, 0);
-            masterTl.fromTo(midRow, { x: "-50%" }, { x: "0%", ease: "none" }, 0);
-        }
-
-
-    }
 
     // =========================================
     // Web3Forms AJAX Submission
