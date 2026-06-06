@@ -294,7 +294,8 @@ a:focus-visible {
     overflow: hidden;
 }
 
-.video-container {
+.video-container,
+.bg-container {
     position: absolute;
     inset: 0;
     width: 100%;
