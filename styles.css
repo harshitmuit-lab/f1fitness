@@ -516,25 +516,29 @@ a:focus-visible {
 }
 
 .beyond-text-content {
-    flex: 1 1 400px;
+    flex: 1 1;
     text-align: left;
 }
 
 .beyond-title {
     font-size: clamp(2.5rem, 5vw, 5rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1;
+    /* Reduced from 1.1 */
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    /* Reduced from 1.5rem */
     text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
 }
 
 .beyond-desc {
     font-size: clamp(1rem, 1.5vw, 1.3rem);
-    line-height: 1.6;
+    line-height: 1.5;
+    /* Reduced from 1.6 */
     color: rgba(255, 255, 255, 0.8);
-    margin-top: 1rem;
+    margin-top: 0;
+    /* Reduced from 1rem */
 }
 
 .ig-video-container {
@@ -678,7 +682,8 @@ a:focus-visible {
     overflow-x: hidden;
     padding-top: 0;
     padding-bottom: 4rem;
-    background-color: var(--bg-primary); /* Matte background, kept primary to blend */
+    background-color: var(--bg-primary);
+    /* Matte background, kept primary to blend */
 }
 
 .scroller-wrapper {
@@ -686,7 +691,8 @@ a:focus-visible {
     flex-direction: column;
     width: 100%;
     padding: 2rem 0;
-    gap: 2rem; /* Clean premium spacing between rows */
+    gap: 2rem;
+    /* Clean premium spacing between rows */
     /* Smooth fade on edges for luxury feel */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
@@ -699,7 +705,8 @@ a:focus-visible {
 
 .scroller-track {
     display: flex;
-    gap: 2rem; /* Spacing between cards */
+    gap: 2rem;
+    /* Spacing between cards */
     width: max-content;
     will-change: transform;
     animation: scrollMarquee 45s linear infinite;
@@ -708,7 +715,8 @@ a:focus-visible {
 /* Subtle speed variation for the middle row to feel more organic */
 .mid-row .scroller-track {
     animation-duration: 55s;
-    animation-direction: normal; /* Moving same direction */
+    animation-direction: normal;
+    /* Moving same direction */
 }
 
 /* Desktop hover pause */
@@ -719,45 +727,58 @@ a:focus-visible {
 }
 
 @keyframes scrollMarquee {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(calc(-50% - 1rem), 0, 0); } /* -50% of the width minus half the gap for perfect loop */
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(calc(-50% - 1rem), 0, 0);
+    }
+
+    /* -50% of the width minus half the gap for perfect loop */
 }
 
 .testimonial-card {
     width: min(420px, 85vw);
     flex-shrink: 0;
-    background-color: #141414; /* Matte dark card */
+    background-color: #141414;
+    /* Matte dark card */
     padding: 2.5rem;
     border-radius: 12px;
     border: 1px solid #252525;
     position: relative;
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                border-color 0.4s ease, 
-                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        border-color 0.4s ease,
+        box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Elegant red top border line */
 .testimonial-card::before {
     content: '';
     position: absolute;
-    top: -1px; /* Overlap border */
+    top: -1px;
+    /* Overlap border */
     left: 2.5rem;
     width: 40px;
     height: 2px;
-    background-color: #C1121F; /* Premium red accent */
+    background-color: #C1121F;
+    /* Premium red accent */
     transition: width 0.4s ease;
 }
 
 .testimonial-card:hover {
     border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-4px); /* Very subtle elevation */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Realistic soft shadow, no glow */
+    transform: translateY(-4px);
+    /* Very subtle elevation */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    /* Realistic soft shadow, no glow */
 }
 
 .testimonial-card:hover::before {
-    width: 80px; /* Expands on hover */
+    width: 80px;
+    /* Expands on hover */
     background-color: #dc2626;
 }
 
@@ -774,7 +795,8 @@ a:focus-visible {
 .testimonial-text {
     font-size: 1.05rem;
     font-weight: 400;
-    color: #F5F5F5; /* High-contrast white */
+    color: #F5F5F5;
+    /* High-contrast white */
     margin-bottom: 2.5rem;
     line-height: 1.7;
     flex-grow: 1;
@@ -1502,12 +1524,16 @@ a:focus-visible {
 /* =============================================
    Performance & Accessibility
    ============================================= */
-#facility, #team, #pricing, #testimonials {
+#facility,
+#team,
+#pricing,
+#testimonials {
     content-visibility: auto;
     contain-intrinsic-size: 800px;
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -1516,11 +1542,11 @@ a:focus-visible {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-    
+
     .hero-video {
         display: none;
     }
-    
+
     .bg-cover-img {
         z-index: 1;
     }
