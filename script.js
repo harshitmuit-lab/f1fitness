@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     document.querySelectorAll(
-        '.fade-in, .fade-in-up, .slide-up, .slide-left, .slide-right, .scale-up'
+        '.fade-in, .fade-in-up, .slide-up, .scale-up'
     ).forEach(el => observer.observe(el));
 
     // Fallback for hero content

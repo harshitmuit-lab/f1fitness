@@ -46,7 +46,7 @@
         <!-- Hero Section -->
         <section id="hero" class="hero">
             <div class="video-container">
-                <video autoplay loop muted playsinline class="hero-video">
+                <video autoplay loop muted playsinline preload="metadata" poster="assets/bg.png" class="hero-video">
                     <source src="assets/gallery/bg.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
@@ -114,7 +114,7 @@
         <!-- Beyond Limit Section -->
         <section id="beyond-limit" class="beyond-limit-section" aria-label="Gym Tour">
             <div class="bg-container">
-                <img src="assets/bg.png" alt="" class="bg-cover-img" loading="lazy">
+                <img src="assets/bg.png" alt="" class="bg-cover-img" width="1920" height="1080" loading="lazy" decoding="async">
             </div>
             <div class="beyond-limit-overlay"></div>
             <div class="beyond-limit-content container">
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="ig-video-container fade-in-up">
-                    <video autoplay muted loop playsinline>
+                    <video autoplay muted loop playsinline preload="none">
                         <source src="assets/gallery/tour.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -142,30 +142,30 @@
         <section id="facility" class="section facility-section" aria-label="Facility Gallery">
             <div class="container">
 
-                <div class="gallery-grid">
-                    <div class="gallery-item slide-up">
+                <div class="gallery-grid slide-up">
+                    <div class="gallery-item">
                         <img src="assets/gallery/gallery-1.webp" alt="F1fitness Facility Area"
-                            loading="lazy">
+                            loading="lazy" decoding="async" width="600" height="600">
                     </div>
-                    <div class="gallery-item slide-up">
+                    <div class="gallery-item">
                         <img src="assets/gallery/gallery-2.webp" alt="F1fitness Training Area"
-                            loading="lazy">
+                            loading="lazy" decoding="async" width="600" height="600">
                     </div>
-                    <div class="gallery-item slide-up">
+                    <div class="gallery-item">
                         <img src="assets/gallery/gallery-3.webp" alt="F1fitness Equipment"
-                            loading="lazy">
+                            loading="lazy" decoding="async" width="600" height="600">
                     </div>
-                    <div class="gallery-item slide-up">
+                    <div class="gallery-item">
                         <img src="assets/gallery/gallery-4.webp" alt="F1fitness Workout Zone"
-                            loading="lazy">
+                            loading="lazy" decoding="async" width="600" height="600">
                     </div>
-                    <div class="gallery-item slide-up">
+                    <div class="gallery-item">
                         <img src="assets/gallery/gallery-5.webp" alt="F1fitness Strength Area"
-                            loading="lazy">
+                            loading="lazy" decoding="async" width="600" height="600">
                     </div>
-                    <div class="gallery-item slide-up">
+                    <div class="gallery-item">
                         <img src="assets/gallery/gallery-6.webp" alt="F1fitness Recovery Lounge"
-                            loading="lazy">
+                            loading="lazy" decoding="async" width="600" height="600">
                     </div>
                 </div>
             </div>
@@ -180,11 +180,11 @@
                     </p>
                 </div>
 
-                <div class="team-grid">
+                <div class="team-grid slide-up">
                     <!-- Trainer 1 -->
-                    <div class="team-card slide-up" style="transition-delay: 0.1s;">
+                    <div class="team-card">
                         <div class="trainer-img-wrapper">
-                            <img src="assets/elite_trainer_1775299958384.png" alt="Samar Naik" loading="lazy">
+                            <img src="assets/team/trainer-1.png" alt="Samar Naik" loading="lazy" decoding="async" width="400" height="500">
                         </div>
                         <div class="trainer-info">
                             <span class="trainer-tag">Strength & Conditioning</span>
@@ -196,9 +196,9 @@
                     </div>
 
                     <!-- Trainer 2 -->
-                    <div class="team-card slide-up" style="transition-delay: 0.2s;">
+                    <div class="team-card">
                         <div class="trainer-img-wrapper">
-                            <img src="assets/gallery/zumba.png" alt="Richa Sharma" loading="lazy">
+                            <img src="assets/team/trainer-2.png" alt="Richa Sharma" loading="lazy" decoding="async" width="400" height="500">
                         </div>
                         <div class="trainer-info">
                             <span class="trainer-tag">Yoga & Wellness</span>
@@ -209,9 +209,9 @@
                     </div>
 
                     <!-- Trainer 3 -->
-                    <div class="team-card slide-up" style="transition-delay: 0.3s;">
+                    <div class="team-card">
                         <div class="trainer-img-wrapper">
-                            <img src="assets/gallery/power.png" alt="Jeetu Singh" loading="lazy">
+                            <img src="assets/team/trainer-3.png" alt="Jeetu Singh" loading="lazy" decoding="async" width="400" height="500">
                         </div>
                         <div class="trainer-info">
                             <span class="trainer-tag">Performance Coach</span>
@@ -235,9 +235,9 @@
                     </p>
                 </div>
 
-                <div class="pricing-grid">
+                <div class="pricing-grid slide-up">
                     <!-- Plan 1 -->
-                    <div class="pricing-card slide-up" style="transition-delay: 0.1s;">
+                    <div class="pricing-card">
                         <div class="plan-tag">Strength & Power</div>
                         <h3 class="plan-name">Men's Membership</h3>
                         <div class="plan-price">
@@ -255,7 +255,7 @@
                     </div>
 
                     <!-- Plan 2 -->
-                    <div class="pricing-card slide-up" style="transition-delay: 0.2s;">
+                    <div class="pricing-card">
                         <div class="plan-tag">Core & Flexibility</div>
                         <h3 class="plan-name">Women's Membership</h3>
                         <div class="plan-price">
@@ -273,7 +273,7 @@
                     </div>
 
                     <!-- Plan 3 (Best Value / Featured) -->
-                    <div class="pricing-card featured slide-up" style="transition-delay: 0.3s;">
+                    <div class="pricing-card featured">
                         <div class="featured-badge">Best Value</div>
                         <div class="plan-tag">Double Performance</div>
                         <h3 class="plan-name">Couple's Membership</h3>
