@@ -1120,6 +1120,13 @@ a:focus-visible {
     border-radius: var(--radius-pill);
 }
 
+.pricing-cta {
+    text-align: center;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
 /* =============================================
    Footer
    ============================================= */
